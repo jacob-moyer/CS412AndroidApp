@@ -14,9 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment2">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:launchMode="singleInstance"
             android:theme="@style/Theme.Assignment2"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -28,7 +30,8 @@
 
         <activity
             android:name=".SecondActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="com.example.assignment2.SECOND_ACTIVITY"/>
                 <category android:name="android.intent.category.DEFAULT"/>
