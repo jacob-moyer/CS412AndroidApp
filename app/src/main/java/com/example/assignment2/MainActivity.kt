@@ -167,6 +167,16 @@ fun sendBroadcastButton(){
         Text("Send Broadcast")
     }
 }
+@Composable
+fun ImageButton(){
+    val context= LocalContext.current
+    Button(onClick = {
+        val intent = Intent(context, ThirdActivity::class.java)
+        context.startActivity(intent)
+    }) {
+        Text("View Image Activity")
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
@@ -187,5 +197,7 @@ fun MainScreen() {
         bindServiceButton()
         Spacer(modifier = Modifier.height(32.dp))
         sendBroadcastButton()
+        Spacer(modifier = Modifier.height(32.dp))
+        ImageButton()
     }
 }
