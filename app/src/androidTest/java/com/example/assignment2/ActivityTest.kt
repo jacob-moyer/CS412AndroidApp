@@ -17,15 +17,15 @@ import org.junit.runner.RunWith
 class ActivityTest {
 
     private lateinit var device: UiDevice
-    private val appPackage = "com.example.assignment2"  // <-- your applicationId
-    private val appName = "Assignment2"                  // <-- label under the launcher icon
+    private val appPackage = "com.example.assignment2"  
+    private val appName = "Assignment2"                  
     private val timeout = 5000L
 
     @Before
     fun setUp() {
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
-        // Start from the home screen
+        
         device.pressHome()
         val launcherPackage = device.launcherPackageName
         device.wait(Until.hasObject(By.pkg(launcherPackage).depth(0)), timeout)
@@ -54,12 +54,12 @@ class ActivityTest {
         }
         device.wait(Until.hasObject(By.pkg(appPackage).depth(0)), timeout)
 
-        // 2. Navigate to the second activity
+        
         val button = device.wait(Until.findObject(By.text("Explicit")), timeout)
         assertNotNull("Start Activity Explicitly button not found", button)
         button.click()
 
-        // 3. Verify a mobile SE challenge is displayed (use text from YOUR app)
+       
         val challenge = device.wait(
             Until.findObject(By.textContains("1) Support for older client versions must be maintained")), timeout
         )
